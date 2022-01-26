@@ -12,6 +12,25 @@ class Game
         @players << player
     end
 
+    def load_players(filename) 
+        file_path = "./studio_game/#{filename}"
+        File.readlines(file_path).each do |line|
+            name, health = line.split(',')
+            player = Player.new(name, Integer(health))
+            add_player(player)
+        end
+    end
+
+    def save_high_scores(filename="high_scores.txt")
+        file_path = "./studio_game/#{filename}"
+        File.open(file_path, "w") do |file|
+            file.puts "#{@name} High Scores:"
+            @players.sort.each do |player|
+                file.puts "#{player.name}: #{player.score}"
+            end
+        end
+    end
+
     def play(rounds=1) 
         puts "\nThere are #{@players.size} players in the game:"
 
