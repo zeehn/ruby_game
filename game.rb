@@ -32,7 +32,7 @@ class Game
             @players.each do |player|
                 GameTurn.take_turn(player)
                 treasure = TreasureTrove.sample
-                puts "#{player.name} found a #{treasure.name} worth #{treasure.points} points."
+                player.found_treasure(treasure)
                 puts player  
             end
         end
@@ -63,6 +63,19 @@ class Game
         sorted_players.each do |player|
             formatted_name = player.name.ljust(20, '.')
             puts "#{formatted_name} #{player.score}"
+        end
+
+        # @players.each do |player|
+        #     puts "\n#{player.name}'s point totals:"
+        #     puts "#{player.points} grand total points"
+        # end
+
+        @players.sort.each do |player|
+            puts "\n#{player.name}'s point totals:"
+            player.each_found_treasure do |treasure|
+              puts "#{treasure.points} total #{treasure.name} points"
+            end
+            puts "#{player.points} grand total points"
         end
     end
 end
