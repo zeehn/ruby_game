@@ -10,4 +10,5 @@ knucleheads = Game.new("Knucleheads")
 knucleheads.add_player(player1)
 knucleheads.add_player(player2)
 knucleheads.add_player(player3)
-knucleheads.play
+knucleheads.play(3)
+knucleheads.print_stats
