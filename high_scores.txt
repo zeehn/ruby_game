@@ -1,4 +1,5 @@
 Knucleheads High Scores:
-Zheo: 1910
-Rimon: 1895
-Zalvin: 1560
+Zalvin: 1585
+Rimon: 1035
+Zheo: 955
+Klutz: 767.5
